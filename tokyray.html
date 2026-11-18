@@ -1,0 +1,597 @@
+
+Вставленный текст(2).txt
+Документ
+кнопка кой пыкыр жазуга
+
+Дайын! Сайтқа «✎ Пікір жазу» батырмасын қостым.
+
+Батырманы басқанда пікір жазу бөліміне өтеді.
+
+Атыңды және пікіріңді енгізуге болады.
+
+«Пікірді жіберу» батырмасы арқылы email-ға жіберуге дайындалады.
+
+Сайттың толық жаңартылған HTML файлын жүктеу
+
+
+tokyrau_pikir_button.html
+HTML
+код жтберси
+Міне, сайттың толық коды:
+
+HTML кодын ашу және жүктеу
+
+
+tokyrau_pikir_button.html
+HTML
+txt
+
+TXT форматындағы толық кодты жүктеу
+
+
+tokyrau_pikir_button.txt
+Документ
+
+
+
+
+<!DOCTYPE html>
+<html lang="kk" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Тоқырау кезеңі</title>
+    <meta
+      name="description"
+      content="Тоқырау кезеңі туралы қысқаша визитка-сайт."
+    />
+    <style>
+      :root {
+        /* Палитра: 252323, 70798C, F5F1ED, DAD2BC, A99985 */
+        --bg: #f5f1ed;
+        --bg-soft: #dad2bc;
+        --card: #fbf9f7;
+        --ink: #252323;
+        --muted: #5e564b;
+        --accent: #70798c;
+        --accent-soft: #dad2bc;
+        --link: #4f586b;
+        --line: #dad2bc;
+        --shadow: 0 10px 30px rgba(37, 35, 35, 0.08);
+        --radius: 28px;
+        color-scheme: light;
+      }
+      :root[data-theme='dark'] {
+        --bg: #252323;
+        --bg-soft: #302d2d;
+        --card: #2d2a2a;
+        --ink: #f5f1ed;
+        --muted: #dad2bc;
+        --accent: #70798c;
+        --accent-soft: #3a3636;
+        --link: #a99985;
+        --line: #403b3b;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        color-scheme: dark;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue',
+          Arial, sans-serif;
+        line-height: 1.65;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+      a {
+        color: var(--link);
+      }
+      :focus-visible {
+        outline: 3px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 8px;
+      }
+
+      .wrap {
+        width: min(1040px, 100% - 2.5rem);
+        margin-inline: auto;
+      }
+
+      header {
+        padding: 1.5rem 0 4.5rem;
+      }
+      .topbar {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 3.5rem;
+      }
+      .theme-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        font: inherit;
+        font-size: 0.95rem;
+        color: var(--ink);
+        background: var(--card);
+        border: 1px solid var(--line);
+        padding: 0.55rem 1.1rem 0.55rem 0.7rem;
+        border-radius: 999px;
+        cursor: pointer;
+        box-shadow: var(--shadow);
+        transition: background 0.3s ease, border-color 0.3s ease;
+      }
+      .theme-btn:hover {
+        border-color: var(--accent);
+      }
+      .theme-icon {
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        display: grid;
+        place-items: center;
+        font-size: 1rem;
+        line-height: 1;
+      }
+      h1 {
+        margin: 0;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-weight: 700;
+        font-size: clamp(3.4rem, 12vw, 8.5rem);
+        line-height: 0.95;
+        letter-spacing: -0.03em;
+      }
+      .slogan {
+        margin: 1.6rem 0 0;
+        max-width: 34rem;
+        font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+        color: var(--muted);
+      }
+      .rule {
+        display: block;
+        width: 5.5rem;
+        height: 6px;
+        border-radius: 6px;
+        background: var(--accent);
+        margin-top: 2rem;
+      }
+
+      main {
+        padding-bottom: 5rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: clamp(1.6rem, 4vw, 2.6rem);
+        box-shadow: var(--shadow);
+        transition: background 0.3s ease, border-color 0.3s ease;
+      }
+      .card.wide {
+        grid-column: 1 / -1;
+      }
+      .card h2 {
+        margin: 0 0 1rem;
+        font-family: Georgia, 'Times New Roman', serif;
+        font-size: clamp(1.7rem, 3.6vw, 2.4rem);
+        line-height: 1.15;
+        letter-spacing: -0.01em;
+      }
+      .card p {
+        margin: 0 0 1rem;
+        max-width: 62ch;
+      }
+      .card p:last-child {
+        margin-bottom: 0;
+      }
+      .facts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin: 1.4rem 0 0;
+        padding: 0;
+        list-style: none;
+      }
+      .facts li {
+        background: var(--accent-soft);
+        color: var(--ink);
+        border-radius: 999px;
+        padding: 0.4rem 1rem;
+        font-size: 0.95rem;
+      }
+      .quote {
+        margin: 0;
+        padding: 1.2rem 1.4rem;
+        background: var(--bg-soft);
+        border-radius: 20px;
+        color: var(--ink);
+      }
+
+      figure {
+        margin: 1.6rem 0 0;
+      }
+      figure img {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 20px;
+        border: 1px solid var(--line);
+      }
+      figcaption {
+        margin-top: 0.7rem;
+        font-size: 0.92rem;
+        color: var(--muted);
+        max-width: 62ch;
+      }
+      .card > figure:first-of-type {
+        margin-top: 0;
+        margin-bottom: 1.4rem;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 2.5rem 0 3.5rem;
+        color: var(--muted);
+      }
+      .foot {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem 2rem;
+        justify-content: space-between;
+        align-items: center;
+      }
+      footer a {
+        font-weight: 600;
+        font-size: 1.05rem;
+      }
+
+      .to-top {
+        position: fixed;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+        border: 1px solid var(--line);
+        background: var(--card);
+        color: var(--link);
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s,
+          background 0.3s ease;
+      }
+      .to-top.show {
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+      }
+      .to-top:hover {
+        background: var(--accent-soft);
+      }
+      .to-top svg {
+        width: 1.4rem;
+        height: 1.4rem;
+      }
+
+
+      .feedback-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.55rem 1.1rem;
+        border: 1px solid var(--accent);
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font: inherit;
+        text-decoration: none;
+        cursor: pointer;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+      .feedback-link:hover {
+        opacity: 0.88;
+        transform: translateY(-1px);
+      }
+      .feedback-form {
+        display: grid;
+        gap: 1rem;
+        max-width: 650px;
+      }
+      .feedback-form label {
+        display: grid;
+        gap: 0.45rem;
+        font-weight: 600;
+      }
+      .feedback-form input,
+      .feedback-form textarea {
+        width: 100%;
+        padding: 0.85rem 1rem;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        background: var(--bg);
+        color: var(--ink);
+        font: inherit;
+      }
+      .feedback-form textarea {
+        min-height: 130px;
+        resize: vertical;
+      }
+      .feedback-submit {
+        justify-self: start;
+        padding: 0.75rem 1.25rem;
+        border: 0;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .feedback-submit:hover {
+        opacity: 0.88;
+      }
+      .feedback-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 720px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        header {
+          padding-bottom: 3rem;
+        }
+        .topbar {
+          margin-bottom: 2.5rem;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        * {
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <header class="wrap">
+        <div class="topbar">
+          <a class="feedback-link" href="#feedback">✎ Пікір жазу</a>
+          <button
+            class="theme-btn"
+            id="themeBtn"
+            type="button"
+            aria-label="Түс тақырыбын ауыстыру"
+          >
+            <span class="theme-icon" id="themeIcon" aria-hidden="true">☾</span>
+            <span id="themeLabel">Қараңғы тақырып</span>
+          </button>
+        </div>
+        <h1>Тоқырау</h1>
+        <p class="slogan">
+          Даму бәсеңдеген жылдар: сырттай тыныш, іштей өзгеріске зәру кезең.
+        </p>
+        <span class="rule" aria-hidden="true"></span>
+      </div>
+    </header>
+
+    <main>
+      <main class="wrap grid">
+        <article class="card wide" id="period">
+          <figure>
+          <img
+          src="https://e-history.kz/storage/upload/photo_kk_files/iblock/52f/52f7fa62d5980f4e03bb583820beb7cc.jpg"
+          alt="Тоқырау кезеңі"
+          style="width: 100%; height: auto; border-radius: 12px;"
+          loading="lazy"
+        >
+            <figcaption>
+            Қоғамдық-саяси өмір. Кеңес дәуіріндегі Қазақстан.
+            </figcaption>
+          </figure>
+          <h2>«Тоқырау» кезеңі</h2>
+          <p>
+            «Тоқырау» — экономика мен қоғамдық өмірдегі даму қарқыны
+            байқаларлықтай бәсеңдеген кезең. Кеңес тарихында бұл атауды көбінесе
+            1960-жылдардың ортасынан 1980-жылдардың ортасына дейінгі, яғни
+            Леонид Брежнев дәуіріне қатысты қолданады.
+          </p>
+          <p>
+            Сырттай ел тыныш көрінді: бағалар тұрақты болды, жоспарлар орындалып
+            жатты, басшылар көп жыл бойы қызметінде қалды. Алайда өндіріс
+            баяулап, жаңалыққа жол тарылды, ашық пікір айту қиындады.
+          </p>
+          <ul class="facts">
+            <li>Шамамен 1964–1985 жылдар</li>
+            <li>Жоспарлы экономика</li>
+            <li>Тұрақтылық пен баяулау</li>
+          </ul>
+        </article>
+
+        <article class="card" id="fact">
+          <figure>
+          <img
+          src="https://e-history.kz/storage/tmp/resize/news/1200_0_08aa4aa129f267507cafd5bcd289373a.jpg"
+          alt="Тарихи сурет"
+          style="width: 100%; height: auto; border-radius: 12px;"
+          loading="lazy"
+    
+        >
+            <figcaption>
+            Тоқырау кезеңіндегі Қазақстанның тарихи көрінісі.
+            </figcaption>
+          </figure>
+          <h2>Қызықты мәлімет</h2>
+          <p>
+            Леонид Брежнев 1954–1955 жылдары Қазақстан Компартиясының Орталық
+            Комитетін басқарып, тың игеру науқанына тікелей қатысты. Кейін ол
+            бүкіл елдің басшысы болды.
+          </p>
+          <p>
+            Дінмұхамед Қонаев Қазақ КСР-ін 1964 жылдан 1986 жылға дейін
+            басқарды. Бұл — республика тарихындағы ең ұзақ басшылық кезеңдердің
+            бірі.
+          </p>
+          <p>
+            «Тоқырау» сөзі экономикада өндіріс пен саудадағы тоқыраңқылықты да
+            білдіреді. Мысалы, 1930-жылдардағы Ұлы депрессия кезінде
+            миллиондаған адам жұмыссыз қалды.
+          </p>
+        </article>
+
+        <article class="card" id="summary">
+          <h2>Қорытынды</h2>
+          <p>
+            Тоқырау кезеңі — бір жағынан тұрақтылық, екінші жағынан дамудың
+            тоқтап қалған уақыты. Ол реформаларға деген қажеттілікті көрсетіп,
+            1980-жылдардың ортасындағы өзгерістерге жол ашты.
+          </p>
+          <p>
+            Бұл кезеңнен шығатын басты сабақ: тұрақтылық жаңғырусыз ұзаққа
+            бармайды.
+          </p>
+          <p class="quote">Өткенді білу — бүгінді дұрыс түсінудің бір жолы.</p>
+        </article>
+      </div>
+
+        <section class="card wide" id="feedback">
+          <h2>Пікір қалдыру</h2>
+          <p>Сайт туралы ойыңызды немесе ұсынысыңызды жазыңыз.</p>
+          <form class="feedback-form" id="feedbackForm">
+            <label for="feedbackName">
+              Атыңыз
+              <input id="feedbackName" name="name" type="text" placeholder="Атыңызды жазыңыз" required />
+            </label>
+            <label for="feedbackMessage">
+              Пікіріңіз
+              <textarea id="feedbackMessage" name="message" placeholder="Пікіріңізді осында жазыңыз..." required></textarea>
+            </label>
+            <button class="feedback-submit" type="submit">Пікірді жіберу</button>
+            <p class="feedback-note">Жіберу батырмасын басқанда пікіріңіз электрондық пошта арқылы жіберуге дайындалады.</p>
+          </form>
+        </section>
+    </main>
+
+    <footer>
+      <footer class="wrap foot">
+        <span>Байланыс үшін хат жазыңыз:</span>
+        <a href="mailto:aizerekaskyrbai@icloud.com"
+          >aizerekaskyrbai@icloud.com</a
+        >
+      </div>
+    </footer>
+
+    <button
+      class="to-top"
+      id="toTop"
+      type="button"
+      aria-label="Жоғарыға көтерілу"
+    >
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M12 19V5" />
+        <path d="M5 12l7-7 7 7" />
+      </svg>
+    </button>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var btn = document.getElementById('themeBtn');
+        var icon = document.getElementById('themeIcon');
+        var label = document.getElementById('themeLabel');
+        var toTop = document.getElementById('toTop');
+
+        function applyTheme(theme) {
+          root.setAttribute('data-theme', theme);
+          if (theme === 'dark') {
+            icon.textContent = '☀';
+            label.textContent = 'Жарық тақырып';
+          } else {
+            icon.textContent = '☾';
+            label.textContent = 'Қараңғы тақырып';
+          }
+        }
+
+        var saved = null;
+        try {
+          saved = localStorage.getItem('theme');
+        } catch (e) {}
+        if (saved !== 'light' && saved !== 'dark') {
+          saved =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        }
+        applyTheme(saved);
+
+        btn.addEventListener('click', function () {
+          var next =
+            root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          applyTheme(next);
+          try {
+            localStorage.setItem('theme', next);
+          } catch (e) {}
+        });
+
+
+        var feedbackForm = document.getElementById('feedbackForm');
+        if (feedbackForm) {
+          feedbackForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var name = document.getElementById('feedbackName').value.trim();
+            var message = document.getElementById('feedbackMessage').value.trim();
+
+            if (!name || !message) return;
+
+            var subject = encodeURIComponent('Сайт туралы пікір');
+            var body = encodeURIComponent('Аты: ' + name + '\\n\\nПікір: ' + message);
+            window.location.href =
+              'mailto:aizerekaskyrbai@icloud.com?subject=' + subject + '&body=' + body;
+          });
+        }
+
+        function onScroll() {
+          toTop.classList.toggle('show', window.scrollY > 300);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        toTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      })();
+    </script>
+  </body>
+</html>
